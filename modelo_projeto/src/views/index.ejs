@@ -1,0 +1,48 @@
+<%- include('includes/heading') %>
+    <%- include('includes/nav') %>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2"></div>
+
+                <div class="col-lg-8 my-3">
+                    <h1 class="text-center">Agenda</h1>
+                    <p class="text-center lead">Contatos salvos:</p>
+
+                    <%- include('includes/messages') %>
+
+                        <div>
+                            <% if(showContacts.length > 0) { %>
+                            <table class="table">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th></th>
+                                        <th>Nome</th>
+                                        <th>Telefone</th>
+                                        <th>E-mail</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% showContacts.forEach(contact=> { %>
+                                        <tr>
+                                            <th scope="row"></th>
+                                            <td><%= contact.name %></td>
+                                            <td><%= contact.telephone %></td>    
+                                            <td><%= contact.email %></td>
+                                            <td><button class="btn btn-primary"><a class="text-light" href="/contato/index/<%= contact._id %>">Editar</a></button></td>
+                                            <td><button class="btn btn-danger"><a class="text-light" href="/contato/delete/<%= contact._id %>">Excluir</a></button></td>
+                                        </tr>
+                                        <% }); %>
+                                </tbody>
+                            </table>
+                            <% } else { %>
+                                <p class="text-center lead">Não existem contatos cadastrados</p>
+                            <% } %>
+                        </div>
+                </div>
+
+                <div class="col-lg-2"></div>
+            </div>
+        </div>
+
+        <%- include('includes/footer') %>

@@ -1,0 +1,41 @@
+<%- include('includes/heading') %>
+    <%- include('includes/nav') %>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2"></div>
+
+                <div class="col-lg-8 my-3">
+                    <h1 class="text-center">Criar contato</h1>
+                    <%- include('includes/messages') %>
+                    <form class="form-contact" action="/contato/register" method="post">
+                        <input type="hidden" name="_csrf">
+                        <div class="form-group contact-name">
+                            <label for="name" class="mb-1">Nome</label>
+                            <input type="text" name="name" class="form-control mb-2" id="name"
+                                placeholder="Nome do contato">
+                        </div>
+                        <div class="form-group contact-telephone">
+                            <label for="telephone" class="mb-1">Telefone</label>
+                            <input type="tel" name="telephone" class="form-control mb-2" id="telephone"
+                                placeholder="Telefone do contato">
+                        </div>
+                        <div class="form-group contact-email">
+                            <label for="email" class="mb-1">E-mail</label>
+                            <input type="email" name="email" class="form-control mb-3" id="email"
+                                placeholder="E-mail do contato">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Salvar contato</button>
+                    </form>
+
+                        <div class="responsive-table">
+                            <table class="table my-3"></table>
+                        </div>
+                </div>
+
+                <div class="col-lg-2"></div>
+            </div>
+        </div>
+
+        <%- include('includes/footer') %>
